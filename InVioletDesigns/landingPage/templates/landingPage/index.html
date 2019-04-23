@@ -1,0 +1,247 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="Alex D. Pechauer" content="">
+
+  <title>In Violet Designs</title>
+
+  <!-- CSS -->
+  <link href="{% static 'landingPage/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'landingPage/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'landingPage/css/nivo-lightbox.css' %}" rel="stylesheet" />
+  <link href="{% static 'landingPage/css/nivo-lightbox-theme/default/default.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'landingPage/css/owl.carousel.css' %}" rel="stylesheet" media="screen" />
+  <link href="{% static 'landingPage/css/owl.theme.css' %}" rel="stylesheet" media="screen" />
+  <link href="{% static 'landingPage/css/animate.css' %}" rel="stylesheet" />
+  <link href="{% static 'landingPage/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'landingPage/color/default.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+    {% if messages %}
+	{% for message in messages %}
+	<div class="alert alert-{{ message.tags }}">
+		{{ message }}
+	</div>
+	{% endfor %}
+	{% endif %}
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="load"></div>
+  </div>
+
+  <!-- Section: intro -->
+  <section id="intro" class="intro">
+
+    <div class="text-center slogan">
+        <h2>in violet designs</h2>
+    </div>
+
+    <div class="page-scroll">
+      <a href="#about">
+				<!-- <i class="fa fa-angle-down fa-5x animated"></i> -->
+			</a>
+    </div>
+  </section>
+  <!-- /Section: intro -->
+
+  <!-- Navigation -->
+  <div id="navigation">
+    <nav class="navbar navbar-custom" role="navigation">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                                                <i class="fa fa-bars"></i>
+                                                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="menu">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#intro">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#gallery">My gallery</a></li>
+                <li><a href="#contact">Talk to me</a></li>
+              </ul>
+            </div>
+            <!-- /.Navbar-collapse -->
+
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </nav>
+  </div>
+  <!-- /Navigation -->
+
+  <!-- Section: about -->
+  <section id="about" class="home-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+
+          <div class="section-heading text-center">
+            <div class="wow bounceInDown" data-wow-delay="0.2s">
+              <h2>My name is Sarma</h2>
+            </div>
+            <p class="wow bounceInUp" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+
+          <img src="{% static 'landingPage/img/flowers759.JPG' %}" class="img-responsive img-rounded img-scaled" alt="" />
+        </div>
+        <div class="col-md-6">
+          <p><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong></p>
+          <p>
+            Lorem ipsum dolor sit amet, ei purto tamquam ceteros his, eos in graece posidonium. Ex nullam vidisse salutatus sed, ea persius phaedrum tincidunt vel. Option virtute nonumes ne est. Id homero expetendis eam, dictas rationibus ut has.
+          </p>
+          <blockquote>
+            Pri pertinacia elaboraret te, an eirmod delicatissimi nec. Eu liber quodsi maiorum mei. Civibus perfecto rationibus id his, est noster nostrud aliquando at.
+          </blockquote>
+          <a href="#gallery" class="btn btn-skin btn-lg btn-scroll">See my photos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: gallery -->
+  <section id="gallery" class="home-section text-center bg-image">
+
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="wow bounceInDown" data-wow-delay="0.4s">
+            <div class="section-heading">
+              <h2>My photo gallery</h2>
+              <p>Take a look at my personal moment, enjoy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="wow bounceInUp" data-wow-delay="0.4s">
+            <div id="owl-works" class="owl-carousel">
+            {% if photo_list %}
+				{% for photo in photo_list %}
+              <div class="item">
+                  <img src="{{ photo.image.url }}" class="img-responsive" alt="img">
+              </div>
+              {% endfor %}
+              {% else %}
+              	<p>Photo Gallery Coming Soon!</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Section: services -->
+
+
+
+
+  <!-- Section: contact -->
+  <section id="contact" class="home-section text-center">
+    <div class="heading-contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-offset-2">
+
+            <div class="section-heading">
+              <div class="wow bounceInDown" data-wow-delay="0.4s">
+                <h2>Contact us for information</h2>
+              </div>
+              <p class="wow lightSpeedIn" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, sed.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-8 col-md-offset-2">
+          <div class="form-wrapper marginbot-50">
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <form method="POST" role="form" class="">
+                {% csrf_token %}
+              <div class="form-group">
+                  {{ form.name }}
+              </div>
+              <div class="form-group">
+                  {{ form.email }}
+              </div>
+              <div class="form-group">
+                  {{ form.subject }}
+              </div>
+              <div class="form-group">
+                  {{ form.message }}
+              </div>
+              <div class="text-center">
+                  <button type="submit" class="btn btn-skin btn-block">Send Message</button>
+            </form>
+          </div>
+          <div class="text-center">
+              <br>
+            <p class="lead"><i class="fa fa-phone"></i> Call me +1 (555) 555-5555</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- /Section: contact -->
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <p>&copy; In Violet Designs All Rights Reserved</p>
+          <div class="credits">
+            Designed by Alex D. Pechauer
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript Files -->
+  <script src="{% static 'landingPage/js/jquery.min.js' %}"></script>
+  <script src="{% static 'landingPage/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'landingPage/js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'landingPage/js/jquery.sticky.js' %}"></script>
+  <script src="{% static 'landingPage/js/jquery.scrollTo.js' %}"></script>
+  <script src="{% static 'landingPage/js/stellar.js' %}"></script>
+  <script src="{% static 'landingPage/js/wow.min.js' %}"></script>
+  <script src="{% static 'landingPage/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'landingPage/js/nivo-lightbox.min.js' %}"></script>
+  <!-- Custom Theme JavaScript -->
+  <script src="{% static 'landingPage/js/custom.js' %}"></script>
+  <script src="{% static 'landingPage/contactform/contactform.js' %}"></script>
+
+</body>
+
+</html>
